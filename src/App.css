@@ -42,3 +42,9 @@
 .navbar-toggler {
   border: 0 !important;
 }
+
+.btn-header {
+  background-color: white;
+  border-radius: 45px;
+  color: #286fdc;
+}
