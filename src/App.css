@@ -1,3 +1,11 @@
+body {
+  font-size: 0.9rem;
+}
+
+.bg-nav {
+  background: white;
+}
+
 .bg-input {
   background-color: #f8f9fa !important;
   border: 0 !important;

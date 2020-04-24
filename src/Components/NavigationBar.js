@@ -35,7 +35,7 @@ class NavigationBar extends Component {
 
   render() {
     return (
-      <Navbar collapseOnSelect expand="lg" sticky="top">
+      <Navbar collapseOnSelect expand="lg" sticky="top" className="bg-nav">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Brand href="#home" className="ml-4 mr-auto">
