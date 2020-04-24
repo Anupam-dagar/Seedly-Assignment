@@ -1,38 +1,44 @@
-.App {
-  text-align: center;
+.bg-input {
+  background-color: #f8f9fa !important;
+  border: 0 !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.button-search {
+  border-radius: 18px;
+  border: 2px solid #286fdc;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-fontsize {
+  font-size: 12px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.text-navbar {
+  color: #121416 !important;
 }
 
-.App-link {
-  color: #61dafb;
+.text-navbar:hover {
+  color: #286fdc !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-search:hover {
+  background-color: white;
+  border-radius: 18px;
+  border: 2px solid #286fdc;
+  color: #286fdc;
+}
+
+.ig-size {
+  width: 13rem !important;
+}
+
+.ig-size-expanded {
+  width: 22rem !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(40, 11, 220, 1.0)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler {
+  border: 0 !important;
 }
