@@ -2,6 +2,7 @@ body {
   font-size: 0.9rem;
 }
 
+/* Navigation Bar */
 .bg-nav {
   background: white;
 }
@@ -51,8 +52,30 @@ body {
   border: 0 !important;
 }
 
+/* Header */
 .btn-header {
   background-color: white;
   border-radius: 45px;
   color: #286fdc;
+}
+
+/* Sidebar */
+
+.text-sidebar {
+  color: #343a40 !important;
+}
+
+.text-sidebar:hover {
+  color: #286fdc !important;
+}
+
+.text-sidebar.active {
+  color: blue !important;
+  font-weight: bold;
+  background-color: rgb(244, 245, 246);
+  border-radius: 4px;
+}
+
+.card-title.h5 {
+  font-size: 1rem !important;
 }
