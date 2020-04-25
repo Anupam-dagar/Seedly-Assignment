@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Nav, Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import { featuredTopics } from "../actions/topicactions";
+import { Link } from "react-router-dom";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -22,35 +23,40 @@ class Sidebar extends Component {
     }
   }
 
-  handleClick(route, e) {
+  handleClick(route) {
     this.setState({ activeKey: route });
   }
 
   render() {
     return (
-      <Nav
-        className="flex-column d-none d-lg-block"
-        activeKey={this.state.activeKey}
-        onSelect={(route, e) => this.handleClick(route, e)}
-      >
+      <Nav className="flex-column d-none d-lg-block">
         <Card style={{ border: 0, width: "13rem" }}>
           <Card.Body className="pt-2 pb-2 pl-2 pr-2">
-            <Nav.Link className="text-sidebar pl-1 pr-1" href="/">
+            <Link
+              className={`text-sidebar nav-link pl-1 pr-1 ${
+                this.state.activeKey === "/" ? "active" : ""
+              }`}
+              to="/"
+              onClick={() => this.handleClick("/")}
+            >
               All Questions
-            </Nav.Link>
+            </Link>
           </Card.Body>
         </Card>
         <Card style={{ border: 0, width: "13rem" }} className="mt-2">
           <Card.Body className="pt-2 pb-2 pl-2 pr-2">
             <Card.Title className="pl-1 pr-1">Featured Topics</Card.Title>
             {this.state.featuredTopics.map((data, index) => (
-              <Nav.Link
-                className="text-sidebar pl-1 pr-1"
+              <Link
+                className={`text-sidebar nav-link pl-1 pr-1 ${
+                  this.state.activeKey === data.name ? "active" : ""
+                }`}
                 key={index}
-                href={data.name}
+                to={`/topics/${data.name}`}
+                onClick={() => this.handleClick(data.name)}
               >
                 {data.name}
-              </Nav.Link>
+              </Link>
             ))}
           </Card.Body>
         </Card>

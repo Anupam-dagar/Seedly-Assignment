@@ -25,3 +25,20 @@ export const getFeaturedTopicsApi = () => {
       return data;
     });
 };
+
+export const getQuestionsByTopicApi = (topic) => {
+  return fetch(`http://localhost:4000/topicquestions?name=${topic}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
+    .then((resp) => resp.json())
+    .then((data) => {
+      if(data[0]){
+        return data[0].questions
+      }
+      return data;
+    });
+};

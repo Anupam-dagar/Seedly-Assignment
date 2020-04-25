@@ -4,14 +4,15 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Sidebar from "./Components/Sidebar";
 import Advertisement from "./Components/Advertisement";
-import QuestionFeed from './Components/Questionfeed';
+import QuestionFeed from "./Components/Questionfeed";
 import { Jumbotron, Container } from "react-bootstrap";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./style.scss";
 import "./App.css";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <NavigationBar />
       <Header />
       <Jumbotron fluid className="mb-0 pt-3">
@@ -21,7 +22,10 @@ function App() {
               <Sidebar />
             </div>
             <div className="ml-3 flex-fill">
-              <QuestionFeed />
+              <Switch>
+                <Route path={`/topics/:topicId`} component={QuestionFeed} />
+                <Route path="/" component={QuestionFeed} />
+              </Switch>
             </div>
             <div className="ml-3 d-none d-lg-block">
               <Advertisement />
@@ -30,7 +34,7 @@ function App() {
         </Container>
       </Jumbotron>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 
