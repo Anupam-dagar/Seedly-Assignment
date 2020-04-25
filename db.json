@@ -3,13 +3,19 @@
             "id": 1,
             "name": "Colin Lim",
             "designation": "Financial Services Consultant at Colin Lim",
-            "levelId": 2
+            "level": {
+                "id": 2,
+                "name": "Level 2"
+            }
         },
         {
             "id": 2,
             "name": "Jacob",
             "designation": "",
-            "levelId": 3
+            "level": {
+                "id": 3,
+                "name": "Level 3"
+            }
         }
     ],
     "levels": [{
@@ -135,7 +141,7 @@
                 "id": 1,
                 "title": "To re-invest the whole 15k payout sum or keep some liquidity?",
                 "followers": 1,
-                "topicId": [{
+                "topics": [{
                         "id": 13,
                         "name": "Savings",
                         "isFeatured": false
@@ -157,7 +163,7 @@
                 "id": 1,
                 "title": "To re-invest the whole 15k payout sum or keep some liquidity?",
                 "followers": 1,
-                "topicId": [{
+                "topics": [{
                         "id": 13,
                         "name": "Savings",
                         "isFeatured": false
@@ -179,11 +185,11 @@
                 "id": 1,
                 "title": "To re-invest the whole 15k payout sum or keep some liquidity?",
                 "followers": 1,
-                "topicId": [{
+                "topics": [{
                     "id": 2,
                     "title": "Hi community, I have just finished paying school loans and am looking for advice on start my own portfolio for investments. How do you start a portfolio?",
                     "followers": 3,
-                    "topicId": [{
+                    "topics": [{
                         "id": 8,
                         "name": "Stocks Discussion",
                         "isFeatured": false
@@ -198,7 +204,7 @@
             "id": 1,
             "title": "To re-invest the whole 15k payout sum or keep some liquidity?",
             "followers": 1,
-            "topicId": [{
+            "topics": [{
                     "id": 13,
                     "name": "Savings",
                     "isFeatured": false
@@ -216,7 +222,7 @@
             "id": 2,
             "title": "Hi community, I have just finished paying school loans and am looking for advice on start my own portfolio for investments. How do you start a portfolio?",
             "followers": 3,
-            "topicId": [{
+            "topics": [{
                 "id": 8,
                 "name": "Stocks Discussion",
                 "isFeatured": false
@@ -229,19 +235,46 @@
             "id": 1,
             "content": "Hi Anon,\nBefore that,\nI hope you had gotten your insurance sorted out!Hmm,\nthere is no right or wrong way to use that $15,000 cause every approach will give you different outcome.1) You can invest the whole $15, 000if you have a long time horizon and able to stomach the short - term volatility.2) You can DCA the entire $15,000 periodically.3) You can split the $15, 000 to RSP and add moreif the market tank.4) Top up SA as you mentioned gives you tax relief and 4 % interest, however exchangefor liquidity.5) You can even save up the $15, 000 incase ofthis situation unemployment risk.Every approach has different objectives and goals to achieve.Do what is comfortablefor you!",
             "questionId": 1,
-            "likeCount": 0
+            "user": {
+                "id": 1,
+                "name": "Colin Lim",
+                "designation": "Financial Services Consultant at Colin Lim",
+                "level": {
+                    "id": 2,
+                    "name": "Level 2"
+                }
+            },
+            "likeCount": 0,
+            "answerUpdated": 8
         },
         {
             "id": 2,
             "content": "Second answer to ques 1",
             "questionId": 1,
-            "likeCount": 2
+            "user": {
+                "id": 2,
+                "name": "Jacob",
+                "designation": "",
+                "level": {
+                    "id": 3,
+                    "name": "Level 3"
+                }
+            },
+            "likeCount": 2,
+            "answerUpdated": 10
         },
         {
             "id": 3,
             "content": "Answer to second question",
             "questionId": 2,
-            "likeCount": 1
+            "user": {
+                "id": 2,
+                "name": "Jacob",
+                "designation": "",
+                "level": 3
+            },
+            "likeCount": 1,
+            "answerUpdated": 12
         }
 
     ]

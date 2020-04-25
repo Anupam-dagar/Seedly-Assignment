@@ -6,16 +6,31 @@ import QuestionFollowShareBar from "./Questionfollowsharebar";
 import QuestionAnswerCard from "./Questionanswercard";
 
 class QuestionCard extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      questionTitle: this.props.questionData.title,
+      followers: this.props.questionData.followers,
+      topics: this.props.questionData.topics,
+      answers: this.props.questionData.answers,
+    };
+  }
+
   render() {
     return (
       <Card style={{ border: 0 }} className="mt-2">
         <Card.Body>
-          <QuestionCardTopics />
-          <Card.Title>How do I know whether I qualify?</Card.Title>
-          <QuestionFollowShareBar />
-          <QuestionAnswerCard />
+          <QuestionCardTopics topics={this.state.topics} />
+          <Card.Title>{this.state.questionTitle}</Card.Title>
+          <QuestionFollowShareBar
+            followers={this.state.followers}
+            answers={this.state.answers.length}
+          />
+          <QuestionAnswerCard answer={this.state.answers[0]} />
           <Button className="btn-like text-secondary pl-3 pr-3">
-            <FontAwesomeIcon color="yellow" icon={["fas", "thumbs-up"]} /> 2
+            <FontAwesomeIcon color="yellow" icon={["fas", "thumbs-up"]} />{" "}
+            {this.state.answers[0].likeCount}
           </Button>
         </Card.Body>
       </Card>

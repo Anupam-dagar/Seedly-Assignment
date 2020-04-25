@@ -2,15 +2,22 @@ import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 
 class QuestionCardTopics extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      topics: this.props.topics,
+    };
+  }
+
   render() {
     return (
       <div>
-        <Button className="qf-label pt-1 pb-1 mr-1 mb-3">
-          Singlife Account
-        </Button>
-        <Button className="qf-label pt-1 pb-1 mr-1 mb-3">
-          Savings Account
-        </Button>
+        {this.state.topics.map((data, index) => (
+          <Button key={index} className="qf-label pt-1 pb-1 mr-1 mb-3">
+            {data.name}
+          </Button>
+        ))}
       </div>
     );
   }
