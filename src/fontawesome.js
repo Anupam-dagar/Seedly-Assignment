@@ -4,7 +4,9 @@ import {
   faInstagram,
   faFacebook,
   faTwitter,
-  faTelegramPlane
+  faTelegramPlane,
 } from "@fortawesome/free-brands-svg-icons";
 
-library.add(faInstagram, faFacebook, faTwitter, faTelegramPlane);
+import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faInstagram, faFacebook, faTwitter, faTelegramPlane, faBullhorn);
