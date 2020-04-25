@@ -70,7 +70,7 @@ body {
 }
 
 .text-sidebar.active {
-  color: blue !important;
+  color: #286fdc !important;
   font-weight: bold;
   background-color: rgb(244, 245, 246);
   border-radius: 4px;
@@ -78,4 +78,64 @@ body {
 
 .card-title.h5 {
   font-size: 1rem !important;
+}
+
+/* Question Feed Topbar */
+.qf-topbar {
+  color: #6c757d !important;
+  font-weight: bold;
+}
+
+.qf-topbar.active {
+  color: #286fdc !important;
+}
+
+.qf-label {
+  background-color: #f4f5f6;
+  color: #9aa1b3;
+  border: 0;
+  font-size: 12px;
+}
+
+.qf-label:hover {
+  color: #286fdc;
+  background-color: #ddeaff;
+}
+
+/* Question Feed Follow Share Bar*/
+.btn-follow {
+  background-color: white;
+  border: 1px solid #dee3f0;
+  color: #40485a;
+  font-size: 12px;
+}
+
+.btn-follow:hover {
+  background-color: white;
+  border: 1px solid #dee3f0;
+  color: #40485a;
+  font-size: 12px;
+}
+
+/* Answer Top Bar */
+.author {
+  font-size: 12px;
+}
+
+/* Like Button */
+.btn-like {
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
+  border: 1px solid rgb(244, 245, 246);
+  border-radius: 30px;
+}
+
+.btn-like:hover {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
+  border: 1px solid rgb(244, 245, 246);
+  border-radius: 30px;
 }

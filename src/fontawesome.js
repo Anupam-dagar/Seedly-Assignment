@@ -7,6 +7,20 @@ import {
   faTelegramPlane,
 } from "@fortawesome/free-brands-svg-icons";
 
-import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBullhorn,
+  faShareAlt,
+  faPlus,
+  faThumbsUp,
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faInstagram, faFacebook, faTwitter, faTelegramPlane, faBullhorn);
+library.add(
+  faInstagram,
+  faFacebook,
+  faTwitter,
+  faTelegramPlane,
+  faBullhorn,
+  faShareAlt,
+  faPlus,
+  faThumbsUp
+);

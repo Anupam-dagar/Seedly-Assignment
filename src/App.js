@@ -4,6 +4,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Sidebar from "./Components/Sidebar";
 import Advertisement from "./Components/Advertisement";
+import QuestionFeed from './Components/Questionfeed';
 import { Jumbotron, Container } from "react-bootstrap";
 import "./style.scss";
 import "./App.css";
@@ -20,7 +21,7 @@ function App() {
               <Sidebar />
             </div>
             <div className="ml-3 flex-fill">
-              <h1>Question Feed</h1>
+              <QuestionFeed />
             </div>
             <div className="ml-3 d-none d-lg-block">
               <Advertisement />
