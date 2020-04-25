@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import QuestionFeedTopbar from "./Questionfeedtopbar";
 import QuestionCard from "./Questioncard";
+import UnansweredQuestionCard from "./Unansweredquestioncard";
 
 class QuestionFeed extends Component {
   render() {
@@ -8,6 +9,7 @@ class QuestionFeed extends Component {
       <>
         <QuestionFeedTopbar />
         <QuestionCard />
+        <UnansweredQuestionCard />
       </>
     );
   }
