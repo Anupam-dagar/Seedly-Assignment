@@ -1,7 +1,248 @@
 {
-    "posts": [{
-            "title": "entry 1",
-            "tags": "tag 1"
+    "users": [{
+            "id": 1,
+            "name": "Colin Lim",
+            "designation": "Financial Services Consultant at Colin Lim",
+            "levelId": 2
+        },
+        {
+            "id": 2,
+            "name": "Jacob",
+            "designation": "",
+            "levelId": 3
         }
+    ],
+    "levels": [{
+            "id": 1,
+            "name": "Level 1"
+        },
+        {
+            "id": 2,
+            "name": "Level 2"
+        },
+        {
+            "id": 3,
+            "name": "Level 3"
+        }
+    ],
+
+    "topics": [{
+            "id": 1,
+            "name": "COVID-19",
+            "isFeatured": true
+        },
+        {
+            "id": 2,
+            "name": "Payments",
+            "isFeatured": false
+        },
+        {
+            "id": 3,
+            "name": "Robo Advisors",
+            "isFeatured": false
+        },
+        {
+            "id": 4,
+            "name": "SeedlyTV S2E04",
+            "isFeatured": false
+        },
+        {
+            "id": 5,
+            "name": "Fire Movement",
+            "isFeatured": false
+        },
+        {
+            "id": 6,
+            "name": "MileLion",
+            "isFeatured": false
+        },
+        {
+            "id": 7,
+            "name": "SG Budget Babe",
+            "isFeatured": false
+        },
+        {
+            "id": 8,
+            "name": "Stocks Discussion",
+            "isFeatured": false
+        },
+        {
+            "id": 9,
+            "name": "Investments",
+            "isFeatured": false
+        },
+        {
+            "id": 10,
+            "name": "Insurance",
+            "isFeatured": false
+        },
+        {
+            "id": 11,
+            "name": "Property",
+            "isFeatured": false
+        },
+        {
+            "id": 12,
+            "name": "Credit Cards",
+            "isFeatured": false
+        },
+        {
+            "id": 13,
+            "name": "Savings",
+            "isFeatured": false
+        },
+        {
+            "id": 14,
+            "name": "Lifestyle",
+            "isFeatured": false
+        },
+        {
+            "id": 15,
+            "name": "Family",
+            "isFeatured": false
+        },
+        {
+            "id": 16,
+            "name": "Retirement",
+            "isFeatured": false
+        },
+        {
+            "id": 17,
+            "name": "Career",
+            "isFeatured": false
+        },
+        {
+            "id": 18,
+            "name": "Savings Accounts",
+            "isFeatured": false
+        },
+        {
+            "id": 19,
+            "name": "Loans",
+            "isFeatured": false
+        },
+        {
+            "id": 20,
+            "name": "CPF",
+            "isFeatured": false
+        }
+    ],
+
+    "topicquestions": [{
+            "id": 1,
+            "name": "Savings",
+            "questions": [{
+                "id": 1,
+                "title": "To re-invest the whole 15k payout sum or keep some liquidity?",
+                "followers": 1,
+                "topicId": [{
+                        "id": 13,
+                        "name": "Savings",
+                        "isFeatured": false
+                    },
+                    {
+                        "id": 9,
+                        "name": "Investments",
+                        "isFeatured": false
+                    }
+                ],
+                "isTrending": false,
+                "isUnanswered": false
+            }]
+        },
+        {
+            "id": 2,
+            "name": "Investments",
+            "questions": [{
+                "id": 1,
+                "title": "To re-invest the whole 15k payout sum or keep some liquidity?",
+                "followers": 1,
+                "topicId": [{
+                        "id": 13,
+                        "name": "Savings",
+                        "isFeatured": false
+                    },
+                    {
+                        "id": 9,
+                        "name": "Investments",
+                        "isFeatured": false
+                    }
+                ],
+                "isTrending": false,
+                "isUnanswered": false
+            }]
+        },
+        {
+            "id": 3,
+            "name": "Stocks Discussion",
+            "questions": [{
+                "id": 1,
+                "title": "To re-invest the whole 15k payout sum or keep some liquidity?",
+                "followers": 1,
+                "topicId": [{
+                    "id": 2,
+                    "title": "Hi community, I have just finished paying school loans and am looking for advice on start my own portfolio for investments. How do you start a portfolio?",
+                    "followers": 3,
+                    "topicId": [{
+                        "id": 8,
+                        "name": "Stocks Discussion",
+                        "isFeatured": false
+                    }],
+                    "isTrending": true,
+                    "isUnanswered": false
+                }]
+            }]
+        }
+    ],
+    "questions": [{
+            "id": 1,
+            "title": "To re-invest the whole 15k payout sum or keep some liquidity?",
+            "followers": 1,
+            "topicId": [{
+                    "id": 13,
+                    "name": "Savings",
+                    "isFeatured": false
+                },
+                {
+                    "id": 9,
+                    "name": "Investments",
+                    "isFeatured": false
+                }
+            ],
+            "isTrending": false,
+            "isUnanswered": false
+        },
+        {
+            "id": 2,
+            "title": "Hi community, I have just finished paying school loans and am looking for advice on start my own portfolio for investments. How do you start a portfolio?",
+            "followers": 3,
+            "topicId": [{
+                "id": 8,
+                "name": "Stocks Discussion",
+                "isFeatured": false
+            }],
+            "isTrending": true,
+            "isUnanswered": false
+        }
+    ],
+    "answers": [{
+            "id": 1,
+            "content": "Hi Anon,\nBefore that,\nI hope you had gotten your insurance sorted out!Hmm,\nthere is no right or wrong way to use that $15,000 cause every approach will give you different outcome.1) You can invest the whole $15, 000if you have a long time horizon and able to stomach the short - term volatility.2) You can DCA the entire $15,000 periodically.3) You can split the $15, 000 to RSP and add moreif the market tank.4) Top up SA as you mentioned gives you tax relief and 4 % interest, however exchangefor liquidity.5) You can even save up the $15, 000 incase ofthis situation unemployment risk.Every approach has different objectives and goals to achieve.Do what is comfortablefor you!",
+            "questionId": 1,
+            "likeCount": 0
+        },
+        {
+            "id": 2,
+            "content": "Second answer to ques 1",
+            "questionId": 1,
+            "likeCount": 2
+        },
+        {
+            "id": 3,
+            "content": "Answer to second question",
+            "questionId": 2,
+            "likeCount": 1
+        }
+
     ]
 }
