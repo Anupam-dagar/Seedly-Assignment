@@ -40,7 +40,7 @@
         {
             "id": 2,
             "name": "Payments",
-            "isFeatured": false
+            "isFeatured": true
         },
         {
             "id": 3,
