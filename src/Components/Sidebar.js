@@ -51,6 +51,7 @@ class Sidebar extends Component {
             </Link>
           </Card.Body>
         </Card>
+
         <Card style={{ border: 0, width: "13rem" }} className="mt-2">
           <Card.Body className="pt-2 pb-2 pl-2 pr-2">
             <Card.Title className="pl-1 pr-1">Featured Topics</Card.Title>

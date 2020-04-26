@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { allQuestions, topicQuestions } from "../actions/questionactions";
 import _ from "lodash";
+import NavItem from "./Navitem";
 
 // Navigation Bar Component
 class NavigationBar extends Component {
@@ -25,6 +26,7 @@ class NavigationBar extends Component {
       inputClass: "ig-size",
       navLinkVisible: "",
       searchValue: "",
+      navItems: ["Ask Community", "Products", "Content", "Events"],
     };
 
     this.delayedRequest = _.debounce(this.delayedRequest, 500);
@@ -98,35 +100,15 @@ class NavigationBar extends Component {
           <Navbar.Brand href="#home" className="ml-4 mr-auto">
             <Image src={logo} width={80} className="d-inline-block align-top" />
           </Navbar.Brand>
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse id="basic-navbar-nav" className="ml-3">
             <Nav className={`mr-auto ${this.state.navLinkVisible}`}>
-              <Nav.Link
-                href="#home"
-                className="text-primary font-weight-bold nav-fontsize"
-              >
-                Ask Community
-              </Nav.Link>
-              <Nav.Link
-                href="#link"
-                className="font-weight-bold text-navbar nav-fontsize"
-              >
-                Products
-              </Nav.Link>
-              <Nav.Link
-                href="#link"
-                className="font-weight-bold text-navbar nav-fontsize"
-              >
-                Content
-              </Nav.Link>
-              <Nav.Link
-                href="#link"
-                className="font-weight-bold text-navbar nav-fontsize"
-              >
-                Events
-              </Nav.Link>
+              {this.state.navItems.map((data, index) => (
+                <NavItem key={index} index={index} data={data} />
+              ))}
             </Nav>
             <Navbar.Brand href="#home" className="ml-4"></Navbar.Brand>
           </Navbar.Collapse>
+
           <Form inline className="mr-4">
             <InputGroup size="sm" className={`mr-2 ${this.state.inputClass}`}>
               <InputGroup.Prepend>
@@ -134,6 +116,7 @@ class NavigationBar extends Component {
                   <Image src={searchSvg} width={20} />
                 </InputGroup.Text>
               </InputGroup.Prepend>
+
               <FormControl
                 onClick={() => this.handleSearch()}
                 onBlur={() => this.handleFocusOut()}
@@ -144,6 +127,7 @@ class NavigationBar extends Component {
                 value={this.state.value}
               />
             </InputGroup>
+
             <Button
               variant="outline-primary"
               className="button-search nav-fontsize font-weight-bold pl-4 pr-4"
