@@ -4,7 +4,8 @@ import { Image } from "react-bootstrap";
 import appstore from "../assets/app-store.png";
 import playstore from "../assets/google-play.png";
 
-function Footer(props) {
+// Footer Component
+function Footer() {
   return (
     <footer id="sticky-footer" className="text-white">
       <div className="p-4 bg-secondary">

@@ -6,6 +6,7 @@ import { allQuestions, topicQuestions } from "../actions/questionactions";
 import { withRouter } from "react-router";
 import { Nav } from "react-bootstrap";
 
+// Question Feed Component. (Displays all the questions.)
 class QuestionFeed extends Component {
   constructor(props) {
     super(props);

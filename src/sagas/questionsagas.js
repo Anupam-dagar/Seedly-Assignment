@@ -7,6 +7,7 @@ import {
 import { put, call } from "redux-saga/effects";
 import { getAllQuestionsApi, getQuestionsByTopicApi } from "../api/api";
 
+// make a get request to fetch all questions and update the store accordingly
 export function* retrieveAllQuestions(data) {
   try {
     const response = yield call(
@@ -31,6 +32,7 @@ export function* retrieveAllQuestions(data) {
   }
 }
 
+// make a get request to fetch all questions of a topic and update the store accordingly
 export function* retrieveTopicQuestions(topic) {
   try {
     const response = yield call(

@@ -1,3 +1,4 @@
+// API call to get all questions.
 export const getAllQuestionsApi = (trending, unanswered, query, page) => {
   let url = `http://localhost:4000/questions?_embed=answers&isUnanswered=${unanswered}&_page=${page}&_limit=10`;
   if (trending !== false) {
@@ -20,6 +21,7 @@ export const getAllQuestionsApi = (trending, unanswered, query, page) => {
     });
 };
 
+// API call to get all featured topics
 export const getFeaturedTopicsApi = () => {
   return fetch("http://localhost:4000/topics?isFeatured=true", {
     method: "GET",
@@ -34,6 +36,7 @@ export const getFeaturedTopicsApi = () => {
     });
 };
 
+// API call to get all questions for a given topic.
 export const getQuestionsByTopicApi = (
   topic,
   trending,

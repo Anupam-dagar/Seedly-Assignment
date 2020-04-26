@@ -3,6 +3,7 @@ import { Card, Nav } from "react-bootstrap";
 import { connect } from "react-redux";
 import { filterParams } from "../actions/filteractions";
 
+// Question Feed Topbar Component. (Provides filters for the question feed.)
 class QuestionFeedTopbar extends Component {
   handleClick(route, e) {
     e.preventDefault();

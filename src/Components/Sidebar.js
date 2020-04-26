@@ -5,6 +5,7 @@ import { featuredTopics } from "../actions/topicactions";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
+// Sidebar Component. (Displays featured topics)
 class Sidebar extends Component {
   constructor(props) {
     super(props);

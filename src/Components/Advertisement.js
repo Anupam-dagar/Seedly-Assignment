@@ -2,7 +2,8 @@ import React from "react";
 import { Card, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Advertisement(props) {
+// Advertisement Component
+function Advertisement() {
   return (
     <Card style={{ border: 0, width: "13rem" }}>
       <Card.Body>

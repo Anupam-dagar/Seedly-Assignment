@@ -6,6 +6,7 @@ import QuestionFollowShareBar from "./Questionfollowsharebar";
 import QuestionAnswerCard from "./Questionanswercard";
 import { connect } from "react-redux";
 
+// Question Card Component. (Displays a Question)
 class QuestionCard extends Component {
   constructor(props) {
     super(props);

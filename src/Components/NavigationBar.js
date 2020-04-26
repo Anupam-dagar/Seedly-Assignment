@@ -16,6 +16,7 @@ import { withRouter } from "react-router";
 import { allQuestions, topicQuestions } from "../actions/questionactions";
 import _ from "lodash";
 
+// Navigation Bar Component
 class NavigationBar extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +30,7 @@ class NavigationBar extends Component {
     this.delayedRequest = _.debounce(this.delayedRequest, 500);
   }
 
+  // Expand search input on click.
   handleSearch() {
     this.setState({
       inputClass: "ig-size-expanded",
@@ -37,6 +39,7 @@ class NavigationBar extends Component {
     });
   }
 
+  // Return search input to original width on losing focus.
   handleFocusOut() {
     this.setState({
       inputClass: "ig-size",

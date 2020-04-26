@@ -1,3 +1,4 @@
+// create a fontawesome icon library.
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import {

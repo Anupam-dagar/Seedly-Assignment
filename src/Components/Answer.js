@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Image, Media } from "react-bootstrap";
 import author from "../assets/author.png";
 
+// Answer Component (Displays answer for the question)
 class Answer extends Component {
   constructor(props) {
     super(props);

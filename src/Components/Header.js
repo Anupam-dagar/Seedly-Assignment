@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Jumbotron, Button } from "react-bootstrap";
 import headerImage from "../assets/header.svg";
+
+// Header Component
 class Header extends Component {
   render() {
     return (

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Image, Media } from "react-bootstrap";
 import author from "../assets/author.png";
 
+// Answer Top Bar Component (Displays answer author information)
 class AnswerTopBar extends Component {
   constructor(props) {
     super(props);
