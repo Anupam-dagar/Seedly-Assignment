@@ -6,10 +6,16 @@ import * as serviceWorker from "./serviceWorker";
 import "./fontawesome";
 import { Provider } from "react-redux";
 import store from "./store";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <Switch>
+        <Route path={`/topics/:topicId`} component={App} />
+        <Route path="/" component={App} />
+      </Switch>
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );

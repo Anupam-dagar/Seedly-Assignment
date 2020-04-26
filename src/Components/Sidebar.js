@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { featuredTopics } from "../actions/topicactions";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
-import { matchPath } from "react-router";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -17,14 +16,12 @@ class Sidebar extends Component {
 
   componentDidMount() {
     this.props.featuredTopics();
-    const path = matchPath(window.location.pathname, {
-      path: "/topics/:topicId",
-      exact: false,
-      strict: false,
-    });
     let route = "/";
-    if (path !== null) {
-      route = decodeURIComponent(path.params.topicId);
+    const { match } = this.props;
+    if (match.params.topicId !== undefined) {
+      route = match.params.topicId;
+    } else {
+      route = "/";
     }
     this.setState({ activeKey: route });
   }

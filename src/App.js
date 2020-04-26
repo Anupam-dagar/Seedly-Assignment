@@ -12,7 +12,7 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <NavigationBar />
       <Header />
       <Jumbotron fluid className="mb-0 pt-3">
@@ -22,10 +22,7 @@ function App() {
               <Sidebar />
             </div>
             <div className="ml-3 flex-fill">
-              <Switch>
-                <Route path={`/topics/:topicId`} component={QuestionFeed} />
-                <Route path="/" component={QuestionFeed} />
-              </Switch>
+              <QuestionFeed />
             </div>
             <div className="ml-3 d-none d-lg-block">
               <Advertisement />
@@ -34,7 +31,7 @@ function App() {
         </Container>
       </Jumbotron>
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 

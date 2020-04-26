@@ -3,6 +3,7 @@ import QuestionFeedTopbar from "./Questionfeedtopbar";
 import QuestionCard from "./Questioncard";
 import { connect } from "react-redux";
 import { allQuestions, topicQuestions } from "../actions/questionactions";
+import { withRouter } from "react-router";
 
 class QuestionFeed extends Component {
   constructor(props) {
@@ -89,5 +90,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { allQuestions, topicQuestions })(
-  QuestionFeed
+  withRouter(QuestionFeed)
 );
