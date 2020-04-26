@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { allQuestions, topicQuestions } from "../actions/questionactions";
 import { withRouter } from "react-router";
 import { Nav } from "react-bootstrap";
+import { filterParams } from "../actions/filteractions";
 
 // Question Feed Component. (Displays all the questions.)
 class QuestionFeed extends Component {
@@ -55,6 +56,8 @@ class QuestionFeed extends Component {
       earlierProps.match.params.topicId !== this.props.match.params.topicId ||
       earlierProps.filterParam !== this.props.filterParam
     ) {
+      earlierProps.match.params.topicId !== this.props.match.params.topicId &&
+        this.props.filterParams("recent");
       this.setState({ questions: [] });
 
       const filterParam = this.props.filterParam;
@@ -160,6 +163,8 @@ const mapStateToProps = (state) => ({
   page: state.questions.page,
 });
 
-export default connect(mapStateToProps, { allQuestions, topicQuestions })(
-  withRouter(QuestionFeed)
-);
+export default connect(mapStateToProps, {
+  allQuestions,
+  topicQuestions,
+  filterParams,
+})(withRouter(QuestionFeed));

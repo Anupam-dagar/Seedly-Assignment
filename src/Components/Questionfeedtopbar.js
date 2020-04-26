@@ -28,21 +28,21 @@ class QuestionFeedTopbar extends Component {
       <Card style={{ border: 0 }}>
         <Card.Body className="pt-1 pb-1">
           <Nav
-            defaultActiveKey="/recent"
+            activeKey={`/${this.props.filterParam}`}
             onSelect={(route, e) => this.handleClick(route, e)}
           >
             <Nav.Item>
-              <Nav.Link eventKey="/recent" className="qf-topbar">
+              <Nav.Link eventKey="/recent" className={`qf-topbar`}>
                 Recent Activity
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="/unanswered" className="qf-topbar">
+              <Nav.Link eventKey="/unanswered" className={`qf-topbar`}>
                 Unanswered
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="/trending" className="qf-topbar">
+              <Nav.Link eventKey="/trending" className={`qf-topbar`}>
                 Trending
               </Nav.Link>
             </Nav.Item>
@@ -53,4 +53,8 @@ class QuestionFeedTopbar extends Component {
   }
 }
 
-export default connect(null, { filterParams })(QuestionFeedTopbar);
+const mapStateToProps = (state) => ({
+  filterParam: state.filterParam.filterParam,
+});
+
+export default connect(mapStateToProps, { filterParams })(QuestionFeedTopbar);
