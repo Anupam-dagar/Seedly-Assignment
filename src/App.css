@@ -163,3 +163,14 @@ body {
 .text-load:hover {
   color: #286fdc !important;
 }
+
+/* Answer content read more/less */
+.ans-content {
+  height: 90px;
+  overflow: hidden;
+}
+
+.ans-content-expanded {
+  height: 100%;
+  overflow: none;
+}
