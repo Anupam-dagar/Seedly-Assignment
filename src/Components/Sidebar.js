@@ -18,7 +18,7 @@ class Sidebar extends Component {
     this.props.featuredTopics();
     let route = "/";
     const { match } = this.props;
-    if (match.params.topicId !== undefined) {
+    if ('topicId' in match.params) {
       route = match.params.topicId;
     } else {
       route = "/";

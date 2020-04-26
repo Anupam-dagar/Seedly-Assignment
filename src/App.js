@@ -6,7 +6,6 @@ import Sidebar from "./Components/Sidebar";
 import Advertisement from "./Components/Advertisement";
 import QuestionFeed from "./Components/Questionfeed";
 import { Jumbotron, Container } from "react-bootstrap";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./style.scss";
 import "./App.css";
 

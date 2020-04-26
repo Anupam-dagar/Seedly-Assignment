@@ -30,9 +30,14 @@ class QuestionFeed extends Component {
       unanswered = true;
     }
     const { match } = this.props;
-    const topic = match.params.topicId;
-    if (topic !== undefined) {
-      this.props.topicQuestions(topic, trending, unanswered, null, 1);
+    if ("topicId" in match.params) {
+      this.props.topicQuestions(
+        match.params.topicId,
+        trending,
+        unanswered,
+        null,
+        1
+      );
     } else {
       this.props.allQuestions(trending, unanswered, null, 1);
     }
@@ -59,7 +64,7 @@ class QuestionFeed extends Component {
         trending = false;
         unanswered = true;
       }
-      if (this.props.match.params.topicId !== undefined) {
+      if ("topicId" in this.props.match.params) {
         this.props.topicQuestions(
           this.props.match.params.topicId,
           trending,
@@ -95,10 +100,9 @@ class QuestionFeed extends Component {
       unanswered = true;
     }
     const { match } = this.props;
-    const topic = match.params.topicId;
-    if (topic !== undefined) {
+    if ("topicId" in match.params) {
       this.props.topicQuestions(
-        topic,
+        match.params.topicId,
         trending,
         unanswered,
         null,
