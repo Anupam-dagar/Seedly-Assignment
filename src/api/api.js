@@ -1,10 +1,7 @@
 export const getAllQuestionsApi = (trending, unanswered, query) => {
-  let url = "http://localhost:4000/questions?_embed=answers";
+  let url = `http://localhost:4000/questions?_embed=answers&isUnanswered=${unanswered}`;
   if (trending !== false) {
     url = url + `&isTrending=${trending}`;
-  }
-  if (unanswered !== false) {
-    url = url + `&isUnanswered=${unanswered}`;
   }
   if (query !== null) {
     url = url + `&q=${query}`;
@@ -38,12 +35,9 @@ export const getFeaturedTopicsApi = () => {
 };
 
 export const getQuestionsByTopicApi = (topic, trending, unanswered, query) => {
-  let url = `http://localhost:4000/topicquestions?name=${topic}`;
+  let url = `http://localhost:4000/topicquestions?name=${topic}&questions.isUnanswered=${unanswered}`;
   if (trending !== false) {
     url = url + `&questions.isTrending=${trending}`;
-  }
-  if (unanswered !== false) {
-    url = url + `&questions.isUnanswered=${unanswered}`;
   }
   if (query !== null) {
     url = url + `&q=${query}`;
