@@ -57,8 +57,12 @@ export const getQuestionsByTopicApi = (
     .then((data) => {
       if (data[0]) {
         const questions = [];
+        const response = {};
+
+        response.numQuestions = data[0].numQuestions;
         data.map((question, index) => questions.push(question.questions));
-        return questions;
+        response.questions = questions;
+        return response;
       }
       return data;
     });

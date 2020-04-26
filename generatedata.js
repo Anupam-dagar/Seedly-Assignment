@@ -9,6 +9,8 @@ const topics = [];
 const questions = [];
 const answers = [];
 const topicquestions = [];
+const topicques = {};
+const markAns = {};
 
 for (let i = 1; i <= 6; i++) {
   const level = {};
@@ -43,7 +45,7 @@ for (let i = 1; i <= 50; i++) {
 
   const id = i;
   const name = faker.fake("{{random.word}}");
-  const isFeatured = faker.fake("{{random.boolean}}") === 'true' ? true : false;
+  const isFeatured = faker.fake("{{random.boolean}}") === "true" ? true : false;
 
   topic.id = id;
   topic.name = name;
@@ -59,8 +61,8 @@ for (let i = 1; i <= 80; i++) {
   const id = i;
   const title = faker.fake("{{lorem.sentences}}");
   const followers = Math.floor(Math.random() * users.length);
-  let isTrending = faker.fake("{{random.boolean}}") === 'true' ? true : false;
-  if (isTrending){
+  let isTrending = faker.fake("{{random.boolean}}") === "true" ? true : false;
+  if (isTrending) {
     trendingCount++;
   }
   if (trendingCount >= 21 && isTrending === true) {
@@ -127,8 +129,6 @@ for (let i = 0; i < quesans.length; i++) {
   quesans[i].answers = [];
 }
 
-const markAns = {};
-
 for (let i = 1; i <= 200; i++) {
   const answer = {};
 
@@ -154,7 +154,7 @@ for (let i = 1; i <= 200; i++) {
 
 for (let i = 1; i <= 80; i++) {
   let j = 201;
-    if (!(i in markAns)) {
+  if (!(i in markAns)) {
     const answer = {};
 
     const id = j;
@@ -178,8 +178,6 @@ for (let i = 1; i <= 80; i++) {
   }
 }
 
-const topicques = {};
-
 for (let i = 0; i < topics.length; i++) {
   topicques[topics[i].name] = [];
 }
@@ -194,6 +192,7 @@ for (let key in topicques) {
   for (let i = 0; i < topicques[key].length; i++) {
     const data = {};
     data.name = key;
+    data.numQuestions = topicques[key].length;
     data.questions = topicques[key][i];
     topicquestions.push(data);
   }

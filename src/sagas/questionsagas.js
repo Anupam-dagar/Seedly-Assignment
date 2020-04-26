@@ -43,11 +43,11 @@ export function* retrieveTopicQuestions(topic) {
       topic.query,
       topic.page
     );
-
     yield put({
       type: SUCCESS_TOPIC_QUESTION,
-      payload: response,
+      payload: response.questions,
       page: topic.page,
+      numAnswers: response.numQuestions,
     });
   } catch (error) {
     const errorMessage = error.message !== undefined ? error.message : error;

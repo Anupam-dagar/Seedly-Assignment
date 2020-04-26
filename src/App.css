@@ -59,6 +59,13 @@ body {
   color: #286fdc;
 }
 
+.btn-header-follow {
+  background-color: transparent;
+  border-radius: 45px;
+  color: white;
+  font-size: 12px;
+}
+
 /* Sidebar */
 
 .text-sidebar {
