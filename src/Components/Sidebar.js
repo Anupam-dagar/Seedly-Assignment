@@ -3,18 +3,30 @@ import { Nav, Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import { featuredTopics } from "../actions/topicactions";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
+import { matchPath } from "react-router";
 
 class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeKey: "/",
+      activeKey: "",
       featuredTopics: [],
     };
   }
 
   componentDidMount() {
     this.props.featuredTopics();
+    const path = matchPath(window.location.pathname, {
+      path: "/topics/:topicId",
+      exact: false,
+      strict: false,
+    });
+    let route = "/";
+    if (path !== null) {
+      route = decodeURIComponent(path.params.topicId);
+    }
+    this.setState({ activeKey: route });
   }
 
   componentDidUpdate(earlierProps) {
@@ -68,4 +80,6 @@ const mapStateToProps = (state) => ({
   topics: state.topics.featuredTopics,
 });
 
-export default connect(mapStateToProps, { featuredTopics })(Sidebar);
+export default connect(mapStateToProps, { featuredTopics })(
+  withRouter(Sidebar)
+);

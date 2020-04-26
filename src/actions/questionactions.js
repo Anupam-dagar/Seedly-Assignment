@@ -10,7 +10,7 @@ export const allQuestions = (trending, unanswered) => {
 };
 
 export const topicQuestions = (topic, trending, unanswered) => {
-  console.log("REQUEST_TOPIC_QUESTION actin received");
+  console.log("REQUEST_TOPIC_QUESTION action received");
   return {
     type: REQUEST_TOPIC_QUESTION,
     topic: topic,
