@@ -1,6 +1,6 @@
 // API call to get all questions.
 export const getAllQuestionsApi = (trending, unanswered, page) => {
-  let url = `http://localhost:4000/questions?_embed=answers&isUnanswered=${unanswered}&_page=${page}&_limit=10`;
+  let url = `${process.env.REACT_APP_SERVER_ENDPOINT}/questions?_embed=answers&isUnanswered=${unanswered}&_page=${page}&_limit=10`;
 
   trending !== false && (url = url + `&isTrending=${trending}`);
 
@@ -19,7 +19,7 @@ export const getAllQuestionsApi = (trending, unanswered, page) => {
 
 // API call to get all featured topics
 export const getFeaturedTopicsApi = () => {
-  return fetch("http://localhost:4000/topics?isFeatured=true", {
+  return fetch(`${process.env.REACT_APP_SERVER_ENDPOINT}/topics?isFeatured=true`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export const getFeaturedTopicsApi = () => {
 
 // API call to get all questions for a given topic.
 export const getQuestionsByTopicApi = (topic, trending, unanswered, page) => {
-  let url = `http://localhost:4000/topicquestions?name=${topic}&questions.isUnanswered=${unanswered}&_page=${page}&_limit=10`;
+  let url = `${process.env.REACT_APP_SERVER_ENDPOINT}/topicquestions?name=${topic}&questions.isUnanswered=${unanswered}&_page=${page}&_limit=10`;
 
   trending !== false && (url = url + `&questions.isTrending=${trending}`);
 
