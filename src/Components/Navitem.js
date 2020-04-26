@@ -2,7 +2,7 @@ import React from "react";
 import { Nav } from "react-bootstrap";
 
 // Navitem Component (Individual item in navigation bar.)
-function NavItem(props) {
+export function NavItem(props) {
   return (
     <Nav.Link
       eventKey={props.data}

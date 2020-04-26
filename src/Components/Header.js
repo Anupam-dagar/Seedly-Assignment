@@ -3,7 +3,7 @@ import { Jumbotron, Button } from "react-bootstrap";
 import headerImage from "../assets/header.svg";
 
 // Header Component
-function Header() {
+export function Header() {
   return (
     <Jumbotron
       fluid

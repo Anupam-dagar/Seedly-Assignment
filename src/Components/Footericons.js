@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // FooterIcons Component
-function FooterIcons() {
+export function FooterIcons() {
   return (
     <div className="bg-dark">
       <div className="d-flex ml-4 p-4">

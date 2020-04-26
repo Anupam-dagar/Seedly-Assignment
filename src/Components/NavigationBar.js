@@ -18,7 +18,7 @@ import _ from "lodash";
 import NavItem from "./Navitem";
 
 // Navigation Bar Component
-class NavigationBar extends Component {
+export class NavigationBar extends Component {
   constructor(props) {
     super(props);
 

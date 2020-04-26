@@ -8,7 +8,7 @@ import { Nav } from "react-bootstrap";
 import { filterParams } from "../actions/filteractions";
 
 // Question Feed Component. (Displays all the questions.)
-class QuestionFeed extends Component {
+export class QuestionFeed extends Component {
   constructor(props) {
     super(props);
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 // Question Card Topics Component. (Displays all the topics of a Question)
-class QuestionCardTopics extends Component {
+export class QuestionCardTopics extends Component {
   constructor(props) {
     super(props);
 

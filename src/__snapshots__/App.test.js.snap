@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Advertisement component 1`] = `ShallowWrapper {}`;
+
+exports[`should render Answer component 1`] = `ShallowWrapper {}`;
+
+exports[`should render AnswerTopBar component 1`] = `ShallowWrapper {}`;
+
+exports[`should render App component 1`] = `ShallowWrapper {}`;
+
+exports[`should render Footer component 1`] = `ShallowWrapper {}`;
+
+exports[`should render FooterIcons component 1`] = `ShallowWrapper {}`;
+
+exports[`should render Header component 1`] = `ShallowWrapper {}`;
+
+exports[`should render NavItem component 1`] = `ShallowWrapper {}`;
+
+exports[`should render Navigation Bar component 1`] = `ShallowWrapper {}`;
+
+exports[`should render QuestionAnswerCard component 1`] = `ShallowWrapper {}`;
+
+exports[`should render QuestionCard component 1`] = `ShallowWrapper {}`;
+
+exports[`should render QuestionCardTopics component 1`] = `ShallowWrapper {}`;
+
+exports[`should render QuestionFeed component 1`] = `ShallowWrapper {}`;
+
+exports[`should render QuestionFeedTopBar component 1`] = `ShallowWrapper {}`;
+
+exports[`should render QuestionFollowShareBar component 1`] = `ShallowWrapper {}`;
+
+exports[`should render Sidebar component 1`] = `ShallowWrapper {}`;

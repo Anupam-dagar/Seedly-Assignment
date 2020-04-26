@@ -4,7 +4,7 @@ import AnswerTopBar from "./Answertopbar";
 import Answer from "./Answer";
 
 // Answer Card Component for the Question
-class QuestionAnswerCard extends Component {
+export class QuestionAnswerCard extends Component {
   constructor(props) {
     super(props);
 

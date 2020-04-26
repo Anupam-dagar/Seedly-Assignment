@@ -5,7 +5,7 @@ import playstore from "../assets/google-play.png";
 import FooterIcons from "./Footericons";
 
 // Footer Component
-class Footer extends Component {
+export class Footer extends Component {
   constructor(props) {
     super(props);
 
