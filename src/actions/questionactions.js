@@ -1,16 +1,17 @@
 import { REQUEST_ALL_QUESTIONS, REQUEST_TOPIC_QUESTION } from "./types";
 
-export const allQuestions = (trending, unanswered, query) => {
+export const allQuestions = (trending, unanswered, query, page) => {
   console.log("REQUEST_ALL_QUESTIONS action received");
   return {
     type: REQUEST_ALL_QUESTIONS,
     trending: trending,
     unanswered: unanswered,
     query: query,
+    page: page
   };
 };
 
-export const topicQuestions = (topic, trending, unanswered, query) => {
+export const topicQuestions = (topic, trending, unanswered, query, page) => {
   console.log("REQUEST_TOPIC_QUESTION action received");
   return {
     type: REQUEST_TOPIC_QUESTION,
@@ -18,5 +19,6 @@ export const topicQuestions = (topic, trending, unanswered, query) => {
     trending: trending,
     unanswered: unanswered,
     query: query,
+    page: page
   };
 };

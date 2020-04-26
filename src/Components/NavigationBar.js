@@ -69,9 +69,9 @@ class NavigationBar extends Component {
     const { match } = this.props;
     const topic = match.params.topicId;
     if (topic !== undefined) {
-      this.props.topicQuestions(topic, trending, unanswered, searchValue);
+      this.props.topicQuestions(topic, trending, unanswered, searchValue, 1);
     } else {
-      this.props.allQuestions(trending, unanswered, searchValue);
+      this.props.allQuestions(trending, unanswered, searchValue, 1);
     }
   }
 

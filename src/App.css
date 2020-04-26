@@ -154,3 +154,12 @@ body {
   background-color: rgb(243, 252, 248);
   border: 0;
 }
+
+/* Load More Questions Button */
+.text-load {
+  color: #286fdc !important;
+}
+
+.text-load:hover {
+  color: #286fdc !important;
+}

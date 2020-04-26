@@ -13,12 +13,14 @@ export function* retrieveAllQuestions(data) {
       getAllQuestionsApi,
       data.trending,
       data.unanswered,
-      data.query
+      data.query,
+      data.page
     );
 
     yield put({
       type: SUCCESS_ALL_QUESTIONS,
       payload: response,
+      page: data.page,
     });
   } catch (error) {
     const errorMessage = error.message !== undefined ? error.message : error;
@@ -36,12 +38,14 @@ export function* retrieveTopicQuestions(topic) {
       topic.topic,
       topic.trending,
       topic.unanswered,
-      topic.query
+      topic.query,
+      topic.page
     );
 
     yield put({
       type: SUCCESS_TOPIC_QUESTION,
       payload: response,
+      page: topic.page,
     });
   } catch (error) {
     const errorMessage = error.message !== undefined ? error.message : error;

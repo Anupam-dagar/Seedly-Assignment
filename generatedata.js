@@ -43,7 +43,7 @@ for (let i = 1; i <= 50; i++) {
 
   const id = i;
   const name = faker.fake("{{random.word}}");
-  const isFeatured = faker.fake("{{random.boolean}}");
+  const isFeatured = faker.fake("{{random.boolean}}") === 'true' ? true : false;
 
   topic.id = id;
   topic.name = name;
@@ -52,16 +52,23 @@ for (let i = 1; i <= 50; i++) {
   topics.push(topic);
 }
 
+let trendingCount = 0;
 for (let i = 1; i <= 80; i++) {
   const question = {};
 
   const id = i;
   const title = faker.fake("{{lorem.sentences}}");
   const followers = Math.floor(Math.random() * users.length);
-  const isTrending = faker.fake("{{random.boolean}}");
+  let isTrending = faker.fake("{{random.boolean}}") === 'true' ? true : false;
+  if (isTrending){
+    trendingCount++;
+  }
+  if (trendingCount >= 21 && isTrending === true) {
+    isTrending = false;
+  }
   const isUnanswered = false;
   const questionTopics = [];
-  const numTopics = Math.floor(Math.random() * topics.length);
+  const numTopics = Math.floor(Math.random() * 10);
   const topicMap = {};
   let j = 0;
   while (j < numTopics) {
@@ -89,10 +96,10 @@ for (let i = 1; i <= 20; i++) {
   const id = i;
   const title = faker.fake("{{lorem.sentences}}");
   const followers = Math.floor(Math.random() * users.length);
-  const isTrending = faker.fake("{{random.boolean}}");
+  const isTrending = false;
   const isUnanswered = true;
   const questionTopics = [];
-  const numTopics = Math.floor(Math.random() * topics.length);
+  const numTopics = Math.floor(Math.random() * 10);
   const topicMap = {};
   let j = 0;
   while (j < numTopics) {
@@ -199,7 +206,7 @@ data.questions = questions;
 data.answers = answers;
 data.topicquestions = topicquestions;
 
-fs.writeFile("data.json", JSON.stringify(data), (err) => {
+fs.writeFile("db.json", JSON.stringify(data), (err) => {
   if (err) throw err;
   console.log("Mock Data Generated");
 });

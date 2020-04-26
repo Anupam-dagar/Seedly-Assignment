@@ -20,6 +20,7 @@ export default function (state = initialState, action) {
         ...state,
         isLoading: false,
         questions: action.payload,
+        page: action.page,
         error: null,
       };
     case FAILURE_ALL_QUESTIONS:
@@ -31,6 +32,7 @@ export default function (state = initialState, action) {
         ...state,
         isLoading: false,
         questions: action.payload,
+        page: action.page,
         error: null,
       };
     case FAILURE_TOPIC_QUESTION:
