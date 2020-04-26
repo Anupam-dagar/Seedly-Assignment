@@ -9,6 +9,7 @@ import { withRouter } from "react-router";
 class Sidebar extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       activeKey: "",
       featuredTopics: [],
@@ -19,18 +20,15 @@ class Sidebar extends Component {
     this.props.featuredTopics();
     let route = "/";
     const { match } = this.props;
-    if ('topicId' in match.params) {
-      route = match.params.topicId;
-    } else {
-      route = "/";
-    }
+
+    "topicId" in match.params ? (route = match.params.topicId) : (route = "/");
+
     this.setState({ activeKey: route });
   }
 
   componentDidUpdate(earlierProps) {
-    if (earlierProps.topics !== this.props.topics) {
+    earlierProps.topics !== this.props.topics &&
       this.setState({ featuredTopics: this.props.topics });
-    }
   }
 
   handleClick(route) {

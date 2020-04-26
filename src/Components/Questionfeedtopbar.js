@@ -7,14 +7,19 @@ import { filterParams } from "../actions/filteractions";
 class QuestionFeedTopbar extends Component {
   handleClick(route, e) {
     e.preventDefault();
-    if (route === "/recent") {
-      this.props.filterParams("recent");
-    }
-    if (route === "/unanswered") {
-      this.props.filterParams("unanswered");
-    }
-    if (route === "/trending") {
-      this.props.filterParams("trending");
+
+    switch (route) {
+      case "/recent":
+        this.props.filterParams("recent");
+        break;
+      case "/unanswered":
+        this.props.filterParams("unanswered");
+        break;
+      case "/trending":
+        this.props.filterParams("trending");
+        break;
+      default:
+        return;
     }
   }
 

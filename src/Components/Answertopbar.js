@@ -13,12 +13,10 @@ class AnswerTopBar extends Component {
   }
 
   componentDidUpdate(earlierProps) {
-    if (earlierProps.user !== this.props.user) {
+    earlierProps.user !== this.props.user &&
       this.setState({ user: this.props.user });
-    }
-    if (earlierProps.time !== this.props.time) {
+    earlierProps.time !== this.props.time &&
       this.setState({ time: this.props.time });
-    }
   }
 
   render() {

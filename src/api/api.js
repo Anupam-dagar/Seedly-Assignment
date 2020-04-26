@@ -1,12 +1,9 @@
 // API call to get all questions.
 export const getAllQuestionsApi = (trending, unanswered, query, page) => {
   let url = `http://localhost:4000/questions?_embed=answers&isUnanswered=${unanswered}&_page=${page}&_limit=10`;
-  if (trending !== false) {
-    url = url + `&isTrending=${trending}`;
-  }
-  if (query !== null) {
-    url = url + `&q=${query}`;
-  }
+
+  trending !== false && (url = url + `&isTrending=${trending}`);
+  query !== null && (url = url + `&q=${query}`);
 
   return fetch(url, {
     method: "GET",
@@ -45,12 +42,10 @@ export const getQuestionsByTopicApi = (
   page
 ) => {
   let url = `http://localhost:4000/topicquestions?name=${topic}&questions.isUnanswered=${unanswered}&_page=${page}&_limit=10`;
-  if (trending !== false) {
-    url = url + `&questions.isTrending=${trending}`;
-  }
-  if (query !== null) {
-    url = url + `&q=${query}`;
-  }
+
+  trending !== false && (url = url + `&questions.isTrending=${trending}`);
+  query !== null && (url = url + `&q=${query}`);
+
   return fetch(url, {
     method: "GET",
     headers: {

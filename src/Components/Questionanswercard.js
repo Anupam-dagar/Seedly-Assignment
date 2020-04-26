@@ -16,13 +16,12 @@ class QuestionAnswerCard extends Component {
   }
 
   componentDidUpdate(earlierProps) {
-    if (earlierProps.answer !== this.props.answer) {
+    earlierProps.answer !== this.props.answer &&
       this.setState({
         answerContent: this.props.answer.content,
         user: this.props.answer.user,
         answerUpdated: this.props.answer.answerUpdated,
       });
-    }
   }
 
   render() {

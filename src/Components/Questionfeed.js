@@ -10,38 +10,44 @@ import { Nav } from "react-bootstrap";
 class QuestionFeed extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       questions: [],
     };
   }
+
   componentDidMount() {
+    const { match } = this.props;
     const filterParam = this.props.filterParam;
     let trending;
     let unanswered;
-    if (filterParam === "recent") {
-      trending = false;
-      unanswered = false;
+
+    switch (filterParam) {
+      case "recent":
+        trending = false;
+        unanswered = false;
+        break;
+      case "trending":
+        trending = true;
+        unanswered = false;
+        break;
+      case "unanswered":
+        trending = false;
+        unanswered = true;
+        break;
+      default:
+        return;
     }
-    if (filterParam === "trending") {
-      trending = true;
-      unanswered = false;
-    }
-    if (filterParam === "unanswered") {
-      trending = false;
-      unanswered = true;
-    }
-    const { match } = this.props;
-    if ("topicId" in match.params) {
-      this.props.topicQuestions(
-        match.params.topicId,
-        trending,
-        unanswered,
-        null,
-        1
-      );
-    } else {
-      this.props.allQuestions(trending, unanswered, null, 1);
-    }
+
+    "topicId" in match.params
+      ? this.props.topicQuestions(
+          match.params.topicId,
+          trending,
+          unanswered,
+          null,
+          1
+        )
+      : this.props.allQuestions(trending, unanswered, null, 1);
   }
 
   componentDidUpdate(earlierProps) {
@@ -50,68 +56,82 @@ class QuestionFeed extends Component {
       earlierProps.filterParam !== this.props.filterParam
     ) {
       this.setState({ questions: [] });
+
       const filterParam = this.props.filterParam;
       let trending;
       let unanswered;
-      if (filterParam === "recent") {
-        trending = false;
-        unanswered = false;
+
+      switch (filterParam) {
+        case "recent":
+          trending = false;
+          unanswered = false;
+          break;
+        case "trending":
+          trending = true;
+          unanswered = false;
+          break;
+        case "unanswered":
+          trending = false;
+          unanswered = true;
+          break;
+        default:
+          return;
       }
-      if (filterParam === "trending") {
-        trending = true;
-        unanswered = false;
-      }
-      if (filterParam === "unanswered") {
-        trending = false;
-        unanswered = true;
-      }
-      if ("topicId" in this.props.match.params) {
-        this.props.topicQuestions(
-          this.props.match.params.topicId,
-          trending,
-          unanswered,
-          null,
-          1
-        );
-      } else {
-        this.props.allQuestions(trending, unanswered, null, 1);
-      }
+
+      "topicId" in this.props.match.params
+        ? this.props.topicQuestions(
+            this.props.match.params.topicId,
+            trending,
+            unanswered,
+            null,
+            1
+          )
+        : this.props.allQuestions(trending, unanswered, null, 1);
     }
-    if (earlierProps.questions !== this.props.questions) {
+
+    earlierProps.questions !== this.props.questions &&
       this.setState({
         questions: [...this.state.questions, ...this.props.questions],
       });
-    }
   }
 
   loadQuestions() {
+    const { match } = this.props;
     const filterParam = this.props.filterParam;
     let trending;
     let unanswered;
-    if (filterParam === "recent") {
-      trending = false;
-      unanswered = false;
+
+    switch (filterParam) {
+      case "recent":
+        trending = false;
+        unanswered = false;
+        break;
+      case "trending":
+        trending = true;
+        unanswered = false;
+        break;
+      case "unanswered":
+        trending = false;
+        unanswered = true;
+        break;
+      default:
+        return;
     }
-    if (filterParam === "trending") {
-      trending = true;
-      unanswered = false;
-    }
-    if (filterParam === "unanswered") {
-      trending = false;
-      unanswered = true;
-    }
-    const { match } = this.props;
-    if ("topicId" in match.params) {
-      this.props.topicQuestions(
-        match.params.topicId,
-        trending,
-        unanswered,
-        null,
-        this.props.page + 1
-      );
-    } else {
-      this.props.allQuestions(trending, unanswered, null, this.props.page + 1);
-    }
+
+    "topicId" in match.params
+      ? this.props.topicQuestions(
+          match.params.topicId,
+          trending,
+          unanswered,
+          null,
+          this.props.page + 1
+        )
+      : this.props.allQuestions(
+          trending,
+          unanswered,
+          null,
+          this.props.page + 1
+        );
   }
 
   render() {

@@ -14,12 +14,11 @@ class QuestionFollowShareBar extends Component {
   }
 
   componentDidUpdate(earlierProps) {
-    if (earlierProps.followers !== this.props.followers) {
+    earlierProps.followers !== this.props.followers &&
       this.setState({ followers: this.props.followers });
-    }
-    if (earlierProps.answers !== this.props.answers) {
+
+    earlierProps.answers !== this.props.answers &&
       this.setState({ answers: this.props.answers });
-    }
   }
 
   render() {

@@ -20,14 +20,13 @@ class QuestionCard extends Component {
   }
 
   componentDidUpdate(earlierProps) {
-    if (earlierProps.questionData !== this.props.questionData) {
+    earlierProps.questionData !== this.props.questionData &&
       this.setState({
         questionTitle: this.props.questionData.title,
         followers: this.props.questionData.followers,
         topics: this.props.questionData.topics,
         answers: this.props.questionData.answers,
       });
-    }
   }
 
   render() {

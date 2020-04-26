@@ -54,27 +54,40 @@ class NavigationBar extends Component {
   }
 
   delayedRequest(searchValue) {
+    const { match } = this.props;
     const filterParam = this.props.filterParam;
     let trending;
     let unanswered;
-    if (filterParam === "recent") {
-      trending = false;
-      unanswered = false;
+
+    switch (filterParam) {
+      case "recent":
+        trending = false;
+        unanswered = false;
+        break;
+      case "trending":
+        trending = true;
+        unanswered = false;
+        break;
+      case "unanswered":
+        trending = false;
+        unanswered = true;
+        break;
+      default:
+        return;
     }
-    if (filterParam === "trending") {
-      trending = true;
-      unanswered = false;
+
+    if ("topicId" in match.params) {
+      this.props.topicQuestions(
+        match.params.topicId,
+        trending,
+        unanswered,
+        searchValue,
+        1
+      );
+      return;
     }
-    if (filterParam === "unanswered") {
-      trending = false;
-      unanswered = true;
-    }
-    const { match } = this.props;
-    if ('topicId' in match.params) {
-      this.props.topicQuestions(match.params.topicId, trending, unanswered, searchValue, 1);
-    } else {
-      this.props.allQuestions(trending, unanswered, searchValue, 1);
-    }
+
+    this.props.allQuestions(trending, unanswered, searchValue, 1);
   }
 
   render() {

@@ -13,9 +13,8 @@ class Answer extends Component {
   }
 
   componentDidUpdate(earlierProps) {
-    if (earlierProps.content !== this.props.content) {
+    earlierProps.content !== this.props.content &&
       this.setState({ content: this.props.content });
-    }
   }
 
   render() {

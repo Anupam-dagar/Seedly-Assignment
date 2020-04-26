@@ -12,9 +12,8 @@ class QuestionCardTopics extends Component {
   }
 
   componentDidUpdate(earlierProps) {
-    if (earlierProps.topics !== this.props.topics) {
+    earlierProps.topics !== this.props.topics &&
       this.setState({ topics: this.props.topics });
-    }
   }
 
   render() {
