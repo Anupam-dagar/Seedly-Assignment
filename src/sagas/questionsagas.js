@@ -12,7 +12,8 @@ export function* retrieveAllQuestions(data) {
     const response = yield call(
       getAllQuestionsApi,
       data.trending,
-      data.unanswered
+      data.unanswered,
+      data.query
     );
 
     yield put({
@@ -34,7 +35,8 @@ export function* retrieveTopicQuestions(topic) {
       getQuestionsByTopicApi,
       topic.topic,
       topic.trending,
-      topic.unanswered
+      topic.unanswered,
+      topic.query
     );
 
     yield put({

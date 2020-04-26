@@ -31,9 +31,9 @@ class QuestionFeed extends Component {
     const { match } = this.props;
     const topic = match.params.topicId;
     if (topic !== undefined) {
-      this.props.topicQuestions(topic, trending, unanswered);
+      this.props.topicQuestions(topic, trending, unanswered, null);
     } else {
-      this.props.allQuestions(trending, unanswered);
+      this.props.allQuestions(trending, unanswered, null);
     }
   }
 
@@ -61,10 +61,11 @@ class QuestionFeed extends Component {
         this.props.topicQuestions(
           this.props.match.params.topicId,
           trending,
-          unanswered
+          unanswered,
+          null
         );
       } else {
-        this.props.allQuestions(trending, unanswered);
+        this.props.allQuestions(trending, unanswered, null);
       }
     }
     if (earlierProps.questions !== this.props.questions) {

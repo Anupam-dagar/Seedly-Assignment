@@ -11,6 +11,10 @@ import {
 } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import searchSvg from "../assets/search.svg";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import { allQuestions, topicQuestions } from "../actions/questionactions";
+import _ from "lodash";
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -19,18 +23,56 @@ class NavigationBar extends Component {
     this.state = {
       inputClass: "ig-size",
       navLinkVisible: "",
+      searchValue: "",
     };
+
+    this.delayedRequest = _.debounce(this.delayedRequest, 500);
   }
 
   handleSearch() {
     this.setState({
       inputClass: "ig-size-expanded",
       navLinkVisible: "invisible",
+      searchValue: "",
     });
   }
 
   handleFocusOut() {
-    this.setState({ inputClass: "ig-size", navLinkVisible: "" });
+    this.setState({
+      inputClass: "ig-size",
+      navLinkVisible: "",
+      searchValue: "",
+    });
+  }
+
+  handleInputChange(e) {
+    this.setState({ searchValue: e.target.value });
+    this.delayedRequest(e.target.value);
+  }
+
+  delayedRequest(searchValue) {
+    const filterParam = this.props.filterParam;
+    let trending;
+    let unanswered;
+    if (filterParam === "recent") {
+      trending = false;
+      unanswered = false;
+    }
+    if (filterParam === "trending") {
+      trending = true;
+      unanswered = false;
+    }
+    if (filterParam === "unanswered") {
+      trending = false;
+      unanswered = true;
+    }
+    const { match } = this.props;
+    const topic = match.params.topicId;
+    if (topic !== undefined) {
+      this.props.topicQuestions(topic, trending, unanswered, searchValue);
+    } else {
+      this.props.allQuestions(trending, unanswered, searchValue);
+    }
   }
 
   render() {
@@ -80,9 +122,11 @@ class NavigationBar extends Component {
               <FormControl
                 onClick={() => this.handleSearch()}
                 onBlur={() => this.handleFocusOut()}
+                onChange={(e) => this.handleInputChange(e)}
                 type="text"
                 placeholder="Find product reviews, questions, or articles"
                 className="mr-sm-2 bg-input shadow-none"
+                value={this.state.value}
               />
             </InputGroup>
             <Button
@@ -98,4 +142,10 @@ class NavigationBar extends Component {
   }
 }
 
-export default NavigationBar;
+const mapStateToProps = (state) => ({
+  filterParam: state.filterParam.filterParam,
+});
+
+export default connect(mapStateToProps, { allQuestions, topicQuestions })(
+  withRouter(NavigationBar)
+);
