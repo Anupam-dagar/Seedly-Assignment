@@ -7,9 +7,13 @@ import {
 import { put, call } from "redux-saga/effects";
 import { getAllQuestionsApi, getQuestionsByTopicApi } from "../api/api";
 
-export function* retrieveAllQuestions() {
+export function* retrieveAllQuestions(data) {
   try {
-    const response = yield call(getAllQuestionsApi);
+    const response = yield call(
+      getAllQuestionsApi,
+      data.trending,
+      data.unanswered
+    );
 
     yield put({
       type: SUCCESS_ALL_QUESTIONS,
@@ -26,7 +30,12 @@ export function* retrieveAllQuestions() {
 
 export function* retrieveTopicQuestions(topic) {
   try {
-    const response = yield call(getQuestionsByTopicApi, topic.topic);
+    const response = yield call(
+      getQuestionsByTopicApi,
+      topic.topic,
+      topic.trending,
+      topic.unanswered
+    );
 
     yield put({
       type: SUCCESS_TOPIC_QUESTION,

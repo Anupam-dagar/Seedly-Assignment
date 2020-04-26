@@ -12,21 +12,58 @@ class QuestionFeed extends Component {
     };
   }
   componentDidMount() {
+    const filterParam = this.props.filterParam;
+    let trending;
+    let unanswered;
+    if (filterParam === "recent") {
+      trending = false;
+      unanswered = false;
+    }
+    if (filterParam === "trending") {
+      trending = true;
+      unanswered = false;
+    }
+    if (filterParam === "unanswered") {
+      trending = false;
+      unanswered = true;
+    }
     const { match } = this.props;
     const topic = match.params.topicId;
     if (topic !== undefined) {
-      this.props.topicQuestions(topic);
+      this.props.topicQuestions(topic, trending, unanswered);
     } else {
-      this.props.allQuestions();
+      this.props.allQuestions(trending, unanswered);
     }
   }
 
   componentDidUpdate(earlierProps) {
-    if (earlierProps.match.params.topicId !== this.props.match.params.topicId) {
+    if (
+      earlierProps.match.params.topicId !== this.props.match.params.topicId ||
+      earlierProps.filterParam !== this.props.filterParam
+    ) {
+      const filterParam = this.props.filterParam;
+      let trending;
+      let unanswered;
+      if (filterParam === "recent") {
+        trending = false;
+        unanswered = false;
+      }
+      if (filterParam === "trending") {
+        trending = true;
+        unanswered = false;
+      }
+      if (filterParam === "unanswered") {
+        trending = false;
+        unanswered = true;
+      }
       if (this.props.match.params.topicId !== undefined) {
-        this.props.topicQuestions(this.props.match.params.topicId);
+        this.props.topicQuestions(
+          this.props.match.params.topicId,
+          trending,
+          unanswered
+        );
       } else {
-        this.props.allQuestions();
+        this.props.allQuestions(trending, unanswered);
       }
     }
     if (earlierProps.questions !== this.props.questions) {
@@ -48,6 +85,7 @@ class QuestionFeed extends Component {
 
 const mapStateToProps = (state) => ({
   questions: state.questions.questions,
+  filterParam: state.filterParam.filterParam,
 });
 
 export default connect(mapStateToProps, { allQuestions, topicQuestions })(

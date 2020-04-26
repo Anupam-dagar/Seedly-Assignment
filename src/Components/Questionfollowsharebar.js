@@ -11,6 +11,16 @@ class QuestionFollowShareBar extends Component {
       answers: this.props.answers,
     };
   }
+
+  componentDidUpdate(earlierProps) {
+    if (earlierProps.followers !== this.props.followers) {
+      this.setState({ followers: this.props.followers });
+    }
+    if (earlierProps.answers !== this.props.answers) {
+      this.setState({ answers: this.props.answers });
+    }
+  }
+
   render() {
     return (
       <div className="d-flex justify-content-between">

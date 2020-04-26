@@ -10,6 +10,13 @@ class Answer extends Component {
       content: this.props.content,
     };
   }
+
+  componentDidUpdate(earlierProps) {
+    if (earlierProps.content !== this.props.content) {
+      this.setState({ content: this.props.content });
+    }
+  }
+
   render() {
     return (
       <Media>

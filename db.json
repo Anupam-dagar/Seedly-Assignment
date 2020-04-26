@@ -70,7 +70,7 @@
         {
             "id": 8,
             "name": "Stocks Discussion",
-            "isFeatured": false
+            "isFeatured": true
         },
         {
             "id": 9,
@@ -135,9 +135,8 @@
     ],
 
     "topicquestions": [{
-            "id": 1,
             "name": "Savings",
-            "questions": [{
+            "questions": {
                 "id": 1,
                 "title": "To re-invest the whole 15k payout sum or keep some liquidity?",
                 "followers": 1,
@@ -187,12 +186,12 @@
                         "answerUpdated": 10
                     }
                 ]
-            }]
+            }
         },
         {
             "id": 2,
             "name": "Investments",
-            "questions": [{
+            "questions": {
                 "id": 1,
                 "title": "To re-invest the whole 15k payout sum or keep some liquidity?",
                 "followers": 1,
@@ -242,12 +241,12 @@
                         "answerUpdated": 10
                     }
                 ]
-            }]
+            }
         },
         {
             "id": 3,
             "name": "Stocks Discussion",
-            "questions": [{
+            "questions": {
                 "id": 2,
                 "title": "Hi community, I have just finished paying school loans and am looking for advice on start my own portfolio for investments. How do you start a portfolio?",
                 "followers": 3,
@@ -271,7 +270,7 @@
                     "likeCount": 1,
                     "answerUpdated": 12
                 }]
-            }]
+            }
         }
     ],
     "questions": [{

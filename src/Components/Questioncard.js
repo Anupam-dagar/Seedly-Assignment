@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import QuestionCardTopics from "./Questioncardtopics";
 import QuestionFollowShareBar from "./Questionfollowsharebar";
 import QuestionAnswerCard from "./Questionanswercard";
+import { connect } from "react-redux";
 
 class QuestionCard extends Component {
   constructor(props) {
@@ -17,6 +18,17 @@ class QuestionCard extends Component {
     };
   }
 
+  componentDidUpdate(earlierProps) {
+    if (earlierProps.questionData !== this.props.questionData) {
+      this.setState({
+        questionTitle: this.props.questionData.title,
+        followers: this.props.questionData.followers,
+        topics: this.props.questionData.topics,
+        answers: this.props.questionData.answers,
+      });
+    }
+  }
+
   render() {
     return (
       <Card style={{ border: 0 }} className="mt-2">
@@ -27,15 +39,25 @@ class QuestionCard extends Component {
             followers={this.state.followers}
             answers={this.state.answers.length}
           />
-          <QuestionAnswerCard answer={this.state.answers[0]} />
-          <Button className="btn-like text-secondary pl-3 pr-3">
-            <FontAwesomeIcon color="yellow" icon={["fas", "thumbs-up"]} />{" "}
-            {this.state.answers[0].likeCount}
-          </Button>
+          {this.props.filterParam !== "unanswered" ? (
+            <>
+              <QuestionAnswerCard answer={this.state.answers[0]} />
+              <Button className="btn-like text-secondary pl-3 pr-3">
+                <FontAwesomeIcon color="yellow" icon={["fas", "thumbs-up"]} />{" "}
+                {this.state.answers[0].likeCount}
+              </Button>
+            </>
+          ) : (
+            <Button className="btn-answer mt-4">Answer Now</Button>
+          )}
         </Card.Body>
       </Card>
     );
   }
 }
 
-export default QuestionCard;
+const mapStateToProps = (state) => ({
+  filterParam: state.filterParam.filterParam,
+});
+
+export default connect(mapStateToProps, null)(QuestionCard);

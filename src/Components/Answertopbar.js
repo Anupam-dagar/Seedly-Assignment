@@ -7,8 +7,17 @@ class AnswerTopBar extends Component {
     super(props);
     this.state = {
       user: this.props.user,
-      time: this.props.time
+      time: this.props.time,
     };
+  }
+
+  componentDidUpdate(earlierProps) {
+    if (earlierProps.user !== this.props.user) {
+      this.setState({ user: this.props.user });
+    }
+    if (earlierProps.time !== this.props.time) {
+      this.setState({ time: this.props.time });
+    }
   }
 
   render() {
@@ -21,8 +30,12 @@ class AnswerTopBar extends Component {
             {this.state.user.designation !== "" &&
               `, ${this.state.user.designation}`}
           </div>
-          <span className="text-primary font-weight-bold">{this.state.user.level.name}</span>{" "}
-          <span className="ml-1 text-secondary">Updated {this.state.time}h ago</span>
+          <span className="text-primary font-weight-bold">
+            {this.state.user.level.name}
+          </span>{" "}
+          <span className="ml-1 text-secondary">
+            Updated {this.state.time}h ago
+          </span>
         </Media.Body>
       </Media>
     );

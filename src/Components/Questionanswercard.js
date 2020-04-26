@@ -13,6 +13,17 @@ class QuestionAnswerCard extends Component {
       answerUpdated: this.props.answer.answerUpdated,
     };
   }
+
+  componentDidUpdate(earlierProps) {
+    if (earlierProps.answer !== this.props.answer) {
+      this.setState({
+        answerContent: this.props.answer.content,
+        user: this.props.answer.user,
+        answerUpdated: this.props.answer.answerUpdated,
+      });
+    }
+  }
+
   render() {
     return (
       <Card className="mt-4">

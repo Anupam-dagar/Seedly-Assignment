@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import { Card, Nav } from "react-bootstrap";
+import { connect } from "react-redux";
+import { filterParams } from "../actions/filteractions";
 
 class QuestionFeedTopbar extends Component {
   handleClick(route, e) {
     e.preventDefault();
     if (route === "/recent") {
-      //dispatch all ques
+      this.props.filterParams("recent");
     }
     if (route === "/unanswered") {
-      //dispatch unasnwered ques
+      this.props.filterParams("unanswered");
     }
     if (route === "/trending") {
-      //dispatch trending ques
+      this.props.filterParams("trending");
     }
   }
 
@@ -45,4 +47,4 @@ class QuestionFeedTopbar extends Component {
   }
 }
 
-export default QuestionFeedTopbar;
+export default connect(null, { filterParams })(QuestionFeedTopbar);
