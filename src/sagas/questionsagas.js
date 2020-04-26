@@ -14,7 +14,6 @@ export function* retrieveAllQuestions(data) {
       getAllQuestionsApi,
       data.trending,
       data.unanswered,
-      data.query,
       data.page
     );
 
@@ -40,7 +39,6 @@ export function* retrieveTopicQuestions(topic) {
       topic.topic,
       topic.trending,
       topic.unanswered,
-      topic.query,
       topic.page
     );
     yield put({

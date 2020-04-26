@@ -14,7 +14,6 @@ import searchSvg from "../assets/search.svg";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { allQuestions, topicQuestions } from "../actions/questionactions";
-import _ from "lodash";
 import NavItem from "./Navitem";
 
 // Navigation Bar Component
@@ -28,8 +27,6 @@ export class NavigationBar extends Component {
       searchValue: "",
       navItems: ["Ask Community", "Products", "Content", "Events"],
     };
-
-    this.delayedRequest = _.debounce(this.delayedRequest, 500);
   }
 
   // Expand search input on click.
@@ -52,44 +49,6 @@ export class NavigationBar extends Component {
 
   handleInputChange(e) {
     this.setState({ searchValue: e.target.value });
-    this.delayedRequest(e.target.value);
-  }
-
-  delayedRequest(searchValue) {
-    const { match } = this.props;
-    const filterParam = this.props.filterParam;
-    let trending;
-    let unanswered;
-
-    switch (filterParam) {
-      case "recent":
-        trending = false;
-        unanswered = false;
-        break;
-      case "trending":
-        trending = true;
-        unanswered = false;
-        break;
-      case "unanswered":
-        trending = false;
-        unanswered = true;
-        break;
-      default:
-        return;
-    }
-
-    if ("topicId" in match.params) {
-      this.props.topicQuestions(
-        match.params.topicId,
-        trending,
-        unanswered,
-        searchValue,
-        1
-      );
-      return;
-    }
-
-    this.props.allQuestions(trending, unanswered, searchValue, 1);
   }
 
   render() {
@@ -109,7 +68,7 @@ export class NavigationBar extends Component {
             <Navbar.Brand href="#home" className="ml-4"></Navbar.Brand>
           </Navbar.Collapse>
 
-          <Form inline className="mr-4">
+          <Form inline className="mr-4" onSubmit={e => e.preventDefault()}>
             <InputGroup size="sm" className={`mr-2 ${this.state.inputClass}`}>
               <InputGroup.Prepend>
                 <InputGroup.Text className="bg-input" id="inputGroupPrepend">
@@ -141,10 +100,6 @@ export class NavigationBar extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  filterParam: state.filterParam.filterParam,
-});
-
-export default connect(mapStateToProps, { allQuestions, topicQuestions })(
+export default connect(null, { allQuestions, topicQuestions })(
   withRouter(NavigationBar)
 );

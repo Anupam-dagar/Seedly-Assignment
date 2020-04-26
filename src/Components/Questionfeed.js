@@ -45,10 +45,9 @@ export class QuestionFeed extends Component {
           match.params.topicId,
           trending,
           unanswered,
-          null,
           1
         )
-      : this.props.allQuestions(trending, unanswered, null, 1);
+      : this.props.allQuestions(trending, unanswered, 1);
   }
 
   componentDidUpdate(earlierProps) {
@@ -86,10 +85,9 @@ export class QuestionFeed extends Component {
             this.props.match.params.topicId,
             trending,
             unanswered,
-            null,
             1
           )
-        : this.props.allQuestions(trending, unanswered, null, 1);
+        : this.props.allQuestions(trending, unanswered, 1);
     }
 
     earlierProps.questions !== this.props.questions &&
@@ -126,13 +124,11 @@ export class QuestionFeed extends Component {
           match.params.topicId,
           trending,
           unanswered,
-          null,
           this.props.page + 1
         )
       : this.props.allQuestions(
           trending,
           unanswered,
-          null,
           this.props.page + 1
         );
   }

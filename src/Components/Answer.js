@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Media, Button } from "react-bootstrap";
+import { Image, Media} from "react-bootstrap";
 import author from "../assets/author.png";
 
 // Answer Component (Displays answer for the question)
