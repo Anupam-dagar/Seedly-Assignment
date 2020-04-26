@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class QuestionCardTopics extends Component {
   constructor(props) {
@@ -20,9 +20,13 @@ class QuestionCardTopics extends Component {
     return (
       <div>
         {this.state.topics.map((data, index) => (
-          <Button key={index} className="qf-label pt-1 pb-1 mr-1 mb-3">
+          <Link
+            to={`/topics/${data.name}`}
+            key={index}
+            className="btn btn-primary qf-label pt-1 pb-1 mr-1 mb-3"
+          >
             {data.name}
-          </Button>
+          </Link>
         ))}
       </div>
     );
